@@ -1,0 +1,21 @@
+{
+  "name": "hotel-offer-orchestrator",
+  "version": "1.0.0",
+  "description": "Aggregates hotel offers from two mock suppliers using Temporal, caches in Redis, filters by price in Redis",
+  "main": "src/server.js",
+  "scripts": {
+    "start:api": "node src/server.js",
+    "start:worker": "node src/temporal/worker.js",
+    "dev:api": "node --watch src/server.js",
+    "test": "node --test test/dedupe.test.js"
+  },
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "@temporalio/activity": "^1.11.0",
+    "@temporalio/client": "^1.11.0",
+    "@temporalio/worker": "^1.11.0",
+    "@temporalio/workflow": "^1.11.0",
+    "express": "^4.19.2",
+    "ioredis": "^5.4.1"
+  }
+}
